@@ -7,8 +7,8 @@ No part of this assignment has been copied manually or electronically from any o
 Name: Aditi Sharma
 Student ID: _145646238 
 Date: _10/9/2024
-Cyclic Web App URL: _______________________________________________________
-GitHub Repository URL: ______________________________________________________
+Cyclic Web App URL: _https://c3a57207-d650-437d-ae7a-965177e80714-00-27w00ndpwepea.kirk.replit.dev/about _____
+GitHub Repository URL: _https://github.com/wizrrrd/web322-app.git
 ********************************************************************************/
 const express = require("express");
 const app = express();
