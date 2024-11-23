@@ -10,6 +10,12 @@
   "author": "Aditi Sharma",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "cloudinary": "^2.5.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-handlebars": "^8.0.1",
+    "multer": "^1.4.5-lts.1",
+    "streamifier": "^0.1.1"
   }
 }

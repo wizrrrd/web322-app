@@ -1,0 +1,12 @@
+.custom-navbar {
+    background-color: black; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-navbar .nav-link, .custom-navbar .navbar-brand {
+    color: white;
+}
+
+.custom-navbar .nav-link:hover {
+    color: gray;
+}
