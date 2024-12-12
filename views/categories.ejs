@@ -1,49 +1,26 @@
 <div class="row">
     <div class="col-md-12">
-        <h2>Categories
-            <a href="/categories/add" class="btn btn-success float-end">Add Category</a>
-        </h2>
+        <h2>Categories</h2>
         <hr />
 
-        <% if(locals.categories && categories.length> 0) { %>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Category ID</th>
-                            <th>Category Name</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% categories.forEach(category=> { %>
-                            <tr>
-                                <td>
-                                    <a href="/items?category=<%= category.id %>">
-                                        <%= category.id %>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="/items?category=<%= category.id %>">
-                                        <%= category.category %>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="/categories/delete/<%= category.id %>" class="btn btn-danger">Remove</a>
-                                </td>
-                            </tr>
-                            <% }); %>
-                    </tbody>
-                </table>
-            </div>
-            <% } %>
+        <% if (categories && categories.length > 0) { %>
+            <ul>
+                <% categories.forEach(category => { %>
+                    <li>
+                        <a href="/items?category=<%= category.category %>">
+                            <%= category.category %>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>No categories available.</p>
+        <% } %>
 
-                <% if(locals.message) { %>
-                    <div class="col-md-12 text-center">
-                        <strong>
-                            <%= message %>
-                        </strong>
-                    </div>
-                    <% } %>
+        <% if (message) { %>
+            <div class="col-md-12 text-center">
+                <strong><%= message %></strong>
+            </div>
+        <% } %>
     </div>
 </div>

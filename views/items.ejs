@@ -5,7 +5,7 @@
         </h2>
         <hr />
 
-        <% if(locals.items && items.length> 0) { %>
+        <% if (items && items.length > 0) { %>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -20,41 +20,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% items.forEach(item=> { %>
+                        <% items.forEach(item => { %>
                             <tr>
-                                <td>
-                                    <%= item.id %>
-                                </td>
-                                <td>
-                                    <%= item.title %>
-                                </td>
-                                <td>
-                                    <%= new Date(item.postDate).toISOString().split('T')[0] %>
-                                </td>
-                                <td><a href="/items?category=<%= item.category %>">
-                                        <%= item.category %>
-                                    </a></td>
-                                <td>$<%= item.price %>
-                                </td>
-                                <td>
-                                    <%= item.published %>
-                                </td>
+                                <td><%= item.id %></td>
+                                <td><%= item.title %></td>
+                                <td><%= new Date(item.postDate).toISOString().split('T')[0] %></td>
+                                <td><a href="/items?category=<%= item.category %>"><%= item.category %></a></td>
+                                <td>$<%= item.price %></td>
+                                <td><%= item.published %></td>
                                 <td>
                                     <a href="/items/delete/<%= item.id %>" class="btn btn-danger">Remove</a>
                                 </td>
                             </tr>
-                            <% }); %>
+                        <% }); %>
                     </tbody>
                 </table>
             </div>
-            <% } %>
+        <% } %>
 
-                <% if(locals.message) { %>
-                    <div class="col-md-12 text-center">
-                        <strong>
-                            <%= message %>
-                        </strong>
-                    </div>
-                    <% } %>
+        <% if (message) { %>
+            <div class="col-md-12 text-center">
+                <strong><%= message %></strong>
+            </div>
+        <% } %>
     </div>
 </div>

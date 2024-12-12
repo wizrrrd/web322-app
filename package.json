@@ -10,13 +10,17 @@
   "author": "Aditi Sharma",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "client-sessions": "^0.8.0",
     "cloudinary": "^2.5.1",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-ejs-layouts": "^2.5.1",
     "express-handlebars": "^8.0.1",
+    "mongoose": "^8.8.4",
     "multer": "^1.4.5-lts.1",
     "pg": "^8.13.1",
+    "pg-promise": "^11.10.2",
     "sequelize": "^6.37.5",
     "streamifier": "^0.1.1"
   }

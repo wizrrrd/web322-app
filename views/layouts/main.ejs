@@ -11,25 +11,63 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="/">WEB322-app Aditi Sharma's store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand text-white" href="#">WEB322 - Aditi Sharma</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link text-white" href="/shop">Shop</a></li>
-                        <li class="nav-item active"><a class="nav-link text-white" href="/about">About</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link <%= locals.page === 'shop' ? 'active' : '' %>" href="/shop">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <%= locals.page === 'about' ? 'active' : '' %>" href="/about">About</a>
+                        </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link text-white" href="/items">Items</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="/categories">Categories</a></li>
-                    </ul>
+    
+                    <% if (locals.session && session.user) { %>
+                        <div class="ms-auto d-flex align-items-center">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person"></i>&nbsp;&nbsp;<%= session.user.userName %>&nbsp;&nbsp;
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                    <li><a class="dropdown-item" href="/userHistory">User History</a></li>
+                                    <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+                                </ul>
+                            </div>
+                            <ul class="navbar-nav ms-3">
+                                <li class="nav-item">
+                                    <a class="nav-link <%= locals.page === 'items' ? 'active' : '' %>"
+                                        href="/items">Items</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link <%= locals.page === 'categories' ? 'active' : '' %>"
+                                        href="/categories">Categories</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <% } else { %>
+                            <div class="ms-auto">
+                                <a href="/register" class="btn btn-primary">
+                                    <i class="bi bi-gear"></i>&nbsp;&nbsp;Register
+                                </a>
+                                <a href="/login" class="btn btn-primary">
+                                    <i class="bi bi-chevron-right"></i>&nbsp;&nbsp;Log In
+                                </a>
+                            </div>
+                            <% } %>
                 </div>
             </div>
         </nav>
+    
         <div class="container" style="padding-top: 90px;">
             <%- body %>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
     </body>
 </html>
